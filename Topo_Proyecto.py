@@ -10,11 +10,11 @@ class MyTopo( Topo ):
         Topo.__init__( self )
 
         # Add hosts and switches
-        Host1 = self.addNode( 'h1' )
-        Host2 = self.addNode( 'h2' )
-        Host3 = self.addNode( 'h3' )
-        Host4 = self.addNode( 'h4' )
-	SrvWeb = self.addNode( 'SrvWeb' )	
+        Host1 = self.addHost( 'h1' )
+        Host2 = self.addHost( 'h2' )
+        Host3 = self.addHost( 'h3' )
+        Host4 = self.addHost( 'h4' )
+	SrvWeb = self.addHost( 'SrvWeb' )	
         Switch1 = self.addSwitch( 's1' )
         Switch2 = self.addSwitch( 's2' )
 
