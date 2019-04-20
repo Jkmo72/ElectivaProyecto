@@ -75,17 +75,26 @@ class LearningSwitch (object):
     # Our table
     self.macToPort = {}
 
+# VER PAYLOAD
+
+ print 'DPID: ', self.connection.dpid
+      print 'IN PORT: ', packet_in.in_port
+      print packet.dst
+      print packet.payload.protosrc
+      print packet.payload.protodst
+      print packet.payload.hwdst
+      print packet.payload.hwsrc
+
+
 # Our firewall table
     self.firewall = {}
 
+	#REGLAS DE BLOQUEO POR MAC
+	
     # Add a Couple of Rules
-    self.AddRule('00-00-00-00-00-01',EthAddr('00:00:00:00:00:01'))
     self.AddRule('00-00-00-00-00-01',EthAddr('00:00:00:00:00:02'))
-    self.AddRule('00-00-00-00-00-01',EthAddr('00:00:00:00:00:03'))	
-    self.AddRule('00-00-00-00-00-01',EthAddr('00:00:00:00:00:04'))
-    self.AddRule('00-00-00-00-00-01',EthAddr('00:00:00:00:00:05'))
-    self.AddRule('00-00-00-00-00-02',EthAddr('00:00:00:00:00:05'))	
-    # We want to hear PacketIn messages, so we listen
+    self.AddRule('00-00-00-00-00-02',EthAddr('00:00:00:00:00:03'))	
+     # We want to hear PacketIn messages, so we listen
     # to the connection
     connection.addListeners(self)
 
@@ -101,12 +110,12 @@ class LearningSwitch (object):
     Handle packet in messages from the switch to implement above algorithm.
     """
 
-    packet = event.parsed
-    if packet.type == packet.IP_TYPE:
-	ip_packet = packet.payload
-	ip_origen = ip_packet.srcip
-	print "La IP de origen es: ", ip_origen
-	print "La MAC de origen es:  ", packet.src 
+   # packet = event.parsed
+   # if packet.type == packet.IP_TYPE:
+#	ip_packet = packet.payload
+#	ip_origen = ip_packet.srcip
+#	print "La IP de origen es: ", ip_origen
+#	print "La MAC de origen es:  ", packet.src 
 
 
     def flood (message = None):
